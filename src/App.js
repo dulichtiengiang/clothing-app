@@ -1,6 +1,5 @@
-import './css/main.css';
 //! Comps
-import Homepage from './components/homepage';
+import Homepage from './pages/homepage/homepage.component.jsx';
 
 function App() {
     return (
