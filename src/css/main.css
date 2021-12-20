@@ -34,7 +34,7 @@ code {
     .menu-item:hover .content {
       opacity: .85; }
   .menu-item.large {
-    height: 380; }
+    font-weight: 300; }
   .menu-item:first-child {
     margin-right: 7.5px; }
   .menu-item:last-child {
@@ -65,14 +65,14 @@ code {
       font-weight: lighter;
       font-size: 1rem; }
 
-.homepage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 80px; }
-
 .directory-menu {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; }
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 80px; }

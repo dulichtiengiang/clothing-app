@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import MenuItem from '../menu-item/menu-item.component';
 
 import img_babydoll from '../../assets/images/img_babydoll.png';
@@ -8,39 +9,52 @@ import img_christmas from '../../assets/images/img_christmas.png';
 import img_trending from '../../assets/images/img_trending.png';
 
 const Directory = () => {
+    const location = useLocation();
     const [state, setstate] = useState({
         sections: [
             {
                 title: 'Baby Doll',
                 size: 'large',
                 imageUrl: img_babydoll,
+                linkUrl: 'babydoll',
             },
             {
                 title: 'Áo Đầm',
                 size: 'large',
                 imageUrl: img_dam,
+                linkUrl: 'aodam',
             },
             {
                 title: 'Quần Jean',
                 size: 'large',
                 imageUrl: img_quanjean,
+                linkUrl: 'quanjean',
             },
             {
                 title: 'Giáng Sinh',
                 size: 'large',
                 imageUrl: img_christmas,
+                linkUrl: 'giangsinh',
             },
             {
                 title: 'Xu hướng',
                 size: 'large',
                 imageUrl: img_trending,
+                linkUrl: 'xuhuong',
             },
         ],
     });
     return (
         <div className="directory-menu">
             {state.sections.map((section, index) => (
-                <MenuItem key={index} title={section.title} size={section.size} imageUrl={section.imageUrl} />
+                <MenuItem
+                    key={index}
+                    title={section.title}
+                    size={section.size}
+                    imageUrl={section.imageUrl}
+                    linkUrl={section.linkUrl}
+                    location={location}
+                />
             ))}
         </div>
     );
