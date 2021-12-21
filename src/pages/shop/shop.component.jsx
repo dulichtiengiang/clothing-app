@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 //! data
 import SHOP_DATA from './shop.data.js';
-//! comps
+//! comps\
 import CollectionPreview from '../../components/collection-preview/collection-preview.component'
 
 
