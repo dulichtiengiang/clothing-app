@@ -17,7 +17,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
 
 .menu-item {
-  min-width: 31%;
+  min-width: 30%;
   height: 240px;
   display: flex;
   flex: 1 1 auto;
@@ -70,6 +70,44 @@ code {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; }
+
+.collection-item {
+  display: flex;
+  flex-direction: column;
+  width: 22%;
+  height: 350px;
+  align-items: center; }
+  .collection-item__image {
+    width: 100%;
+    height: 95%;
+    overflow: hidden; }
+    .collection-item__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+  .collection-item__footer {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.125rem; }
+    .collection-item__footer .name {
+      width: 90%; }
+    .collection-item__footer .price {
+      width: 10%; }
+
+.collection-preview {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px; }
+  .collection-preview .title {
+    font-size: 1.75rem;
+    margin-bottom: 25px;
+    text-transform: uppercase; }
+  .collection-preview .preview {
+    display: flex;
+    justify-content: space-between; }
 
 .homepage {
   display: flex;

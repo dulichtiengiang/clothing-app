@@ -2,6 +2,9 @@ import React from 'react';
 import { useRoutes } from 'react-router-dom';
 //! pages
 import HomePage from '../pages/homepage/homepage.component';
+import ShopPage from '../pages/shop/shop.component';
+import PublicRoute from './PublicRoute';
+//! comps
 const CompBabyDoll = () => {
     return <div className="homeone">Hello Baby Doll</div>;
 };
@@ -20,7 +23,15 @@ const CompXuHuong = () => {
 
 const AppRoute = () => {
     const routes = useRoutes([
-        { path: '/', element: <HomePage /> },
+        {
+            path: '/',
+            element: <PublicRoute />, //! Thu thap du lieu
+            children: [
+                { path: '', element: <HomePage /> },
+                { path: 'home', element: <HomePage /> },
+                { path: 'shop', element: <ShopPage /> },
+            ],
+        },
         { path: '/babydoll', element: <CompBabyDoll /> },
         { path: '/aodam', element: <CompAoDam /> },
         { path: '/quanjean', element: <CompQuanJean /> },

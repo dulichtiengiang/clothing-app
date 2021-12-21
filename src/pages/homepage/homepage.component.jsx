@@ -2,7 +2,7 @@ import React from 'react';
 //! comps
 import Directory from '../../components/directory/directory.component';
 
-const homepage = () => {
+const HomePage = () => {
     return (
         <div className="homepage">
             <Directory />
@@ -10,4 +10,4 @@ const homepage = () => {
     );
 };
 
-export default homepage;
+export default HomePage;

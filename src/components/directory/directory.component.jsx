@@ -10,7 +10,7 @@ import img_trending from '../../assets/images/img_trending.png';
 
 const Directory = () => {
     const location = useLocation();
-    const [state, setstate] = useState({
+    const [data, setData] = useState({
         sections: [
             {
                 title: 'Baby Doll',
@@ -44,9 +44,10 @@ const Directory = () => {
             },
         ],
     });
+    const { sections } = data;
     return (
         <div className="directory-menu">
-            {state.sections.map((section, index) => (
+            {sections.map((section, index) => (
                 <MenuItem
                     key={index}
                     title={section.title}
