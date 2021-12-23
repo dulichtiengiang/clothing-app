@@ -1,0 +1,28 @@
+@import '../abstracts//variables';
+
+$button-color-primary: $color-primary;
+$button-color-secondary: $color-secondary;
+$button-color-main: $default-color-main;
+$button-color-white: $default-color-white;
+$button-color-sub: $default-color-sub;
+$button-font-size: $default-font-size;
+.custom-button {
+    min-width: 165px;
+    width: auto;
+    height: 50px;
+    letter-spacing: .5px;
+    line-height: 50px;
+    padding: 0 35px 0 35px;
+    font-size: 15px;
+    background-color: #{$button-color-main};
+    color: #{$button-color-white};
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #{$button-color-white};
+        color: #{$button-color-main};
+        border: 1px solid #{$button-color-main};
+    }
+}

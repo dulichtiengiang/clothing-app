@@ -1,0 +1,118 @@
+@import '../base/base';
+@import '../abstracts//variables';
+
+// @mixin shrinkLabel {
+//     top: -15px;
+//     font-size: 1rem;
+//     color: $color-primary;
+// }
+
+// .group {
+//     position: relative;
+//     margin: 45px 0;
+
+//     .form-input {
+//         background: white !important;
+//         color: $default-color-sub;
+//         font-size: 18px;
+//         padding: 10px 10px 10px 5px;
+//         display: block;
+//         width: 100%;
+//         border: none;
+//         border-radius: 0;
+//         border-bottom: 1px solid $default-color-sub;
+//         margin: 25px 0;
+
+//         &:focus {
+//             outline: none;
+//         }
+
+//         &:focus ~ .form-input-label {
+//             @include shrinkLabel();
+//         }
+//     }
+
+//     input[type='password'] {
+//         letter-spacing: 0.3em;
+//     }
+
+//     .form-input-label {
+//         color: $default-color-sub;
+//         font-size: 16px;
+//         font-weight: normal;
+//         position: absolute;
+//         pointer-events: none;
+//         left: 5px;
+//         top: 10px;
+//         transition: 300ms ease all;
+
+//         &.shrink {
+//             @include shrinkLabel();
+//         }
+//     }
+// }
+
+// ##########################################
+$input-height: 40px;
+$form-input-color-primary: $color-primary;
+$form-input-color-secondary: $color-secondary;
+$form-input-color-main: $default-color-main;
+$form-input-color-sub: $default-color-sub;
+$form-input-color-white: $default-color-white;
+$form-input-font-size: $default-font-size;
+
+@mixin shrinkLabel {
+    top: -10px;
+    font-size: 1rem;
+    color: $color-primary;
+}
+
+.form-input {
+    position: relative;
+    border-bottom: 2px solid #{$form-input-color-sub};
+    margin-bottom: 40px;
+
+    &__input {
+        font-size: #{$form-input-font-size};
+        width: 100%;
+        padding: 0 5px;
+        height: #{$input-height};
+        border: none;
+        background: none;
+        outline: none;
+
+        &:focus ~ label, &:valid ~ label {
+            @include shrinkLabel();
+        }
+
+        &:focus ~ span::after, &:valid ~ span::after {
+            width: 100%;
+        }
+    }
+
+    &__label {
+        font-size: #{$form-input-font-size};
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        color: #{$default-color-sub};
+        transform: translateY(-50%);
+        pointer-events: none;
+        transition: all .5s;
+        
+        &.shrink {
+            @include shrinkLabel();
+        }
+    }
+
+    span::after {
+        content: '';
+        position: absolute;
+        top: #{$input-height};
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #{$form-input-color-primary};
+        transition: all .5s;
+    }
+}

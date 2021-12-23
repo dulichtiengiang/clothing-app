@@ -3,6 +3,7 @@ import { useRoutes } from 'react-router-dom';
 //! pages
 import HomePage from '../pages/homepage/homepage.component';
 import ShopPage from '../pages/shop/shop.component';
+import SigninSignupPage from '../pages/signin-signup/signin-signup.component'
 import PublicRoute from './PublicRoute';
 //! comps
 const CompBabyDoll = () => {
@@ -30,6 +31,7 @@ const AppRoute = () => {
                 { path: '', element: <HomePage /> },
                 { path: 'home', element: <HomePage /> },
                 { path: 'shop', element: <ShopPage /> },
+                { path: 'signin', element: <SigninSignupPage /> },
             ],
         },
         { path: '/babydoll', element: <CompBabyDoll /> },

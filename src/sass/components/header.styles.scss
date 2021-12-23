@@ -11,7 +11,7 @@ $header-height: 50px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
-    background-color: $color-primary;
+    background-color: $color-secondary;
 
     .logo-container {
         height: 100%;
@@ -29,8 +29,8 @@ $header-height: 50px;
         .option {
             font-size: $default-font-size;
             text-transform: uppercase;
-            text-decoration: none;
-            color: $default-color;
+            color: $default-color-main;
+            padding: 0 15px;
         }
     }
 }
