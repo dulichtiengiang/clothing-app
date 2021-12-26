@@ -27,6 +27,7 @@ $header-height: 50px;
         justify-content: flex-end;
 
         .option {
+            cursor: pointer;
             font-size: $default-font-size;
             text-transform: uppercase;
             color: $default-color-main;

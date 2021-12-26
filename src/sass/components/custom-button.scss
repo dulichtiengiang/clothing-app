@@ -1,28 +1,40 @@
 @import '../abstracts//variables';
 
-$button-color-primary: $color-primary;
-$button-color-secondary: $color-secondary;
-$button-color-main: $default-color-main;
-$button-color-white: $default-color-white;
-$button-color-sub: $default-color-sub;
-$button-font-size: $default-font-size;
+$color-primary: $color-primary;
+$color-secondary: $color-secondary;
+$color-main: $default-color-main;
+$color-white: $default-color-white;
+$color-sub: $default-color-sub;
+$color-goole: #357ae8;
+$font-size: $default-font-size;
+
 .custom-button {
+    cursor: pointer;
     min-width: 165px;
     width: auto;
     height: 50px;
     letter-spacing: .5px;
     line-height: 50px;
-    padding: 0 35px 0 35px;
+    padding: 0 30px 0 30px;
     font-size: 15px;
-    background-color: #{$button-color-main};
-    color: #{$button-color-white};
+    background-color: #{$color-main};
+    color: #{$color-white};
     text-transform: uppercase;
     border: none;
-    cursor: pointer;
 
     &:hover {
-        background-color: #{$button-color-white};
-        color: #{$button-color-main};
-        border: 1px solid #{$button-color-main};
+        background-color: #{$color-white};
+        color: #{$color-main};
+        border: 1px solid #{$color-main};
+    }
+
+    &.google-sign-in {
+        background-color: #{$color-goole};
+        color: white;
+
+        &:hover {
+            background-color: #0f54c4;
+            border: none;
+        }
     }
 }

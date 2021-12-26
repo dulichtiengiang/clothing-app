@@ -4,6 +4,9 @@ import FormInput from '../form-input/form-input.component';
 //! comps
 import CustomButton from '../custom-button/custom-button';
 
+//! firebase
+import firebase from '../../firebase/firebase.utils';
+
 const SignIn = () => {
     const [formData, setFormData] = useState({
         email: '',
@@ -28,7 +31,7 @@ const SignIn = () => {
     };
 
     const handleSubmit = (e) => {
-        console.log('submit');
+        console.log('Signin -> submit');
         e.preventDefault();
         //! Logined
         resetForm();
@@ -45,7 +48,11 @@ const SignIn = () => {
                     <FormInput name="email" type="email" label="email" onChange={handleChange} value={email} required />
                     <FormInput name="password" type="password" label="password" onChange={handleChange} value={password} required />
                     <div className="pass">Forgot Password?</div>
-                    <CustomButton type="submit">Sign in</CustomButton>
+
+                    <div className="buttons">
+                        <CustomButton type="submit" >Sign in</CustomButton>
+                        <CustomButton onClick={firebase.signInWithGoogle} isGoogleSignIn>Signin Google</CustomButton>
+                    </div>
 
                     <div className="signup_link">
                         Not a member?

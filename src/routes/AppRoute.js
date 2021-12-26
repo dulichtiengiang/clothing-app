@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRoutes } from 'react-router-dom';
+
 //! pages
 import HomePage from '../pages/homepage/homepage.component';
 import ShopPage from '../pages/shop/shop.component';
 import SigninSignupPage from '../pages/signin-signup/signin-signup.component'
 import PublicRoute from './PublicRoute';
 //! comps
+
 const CompBabyDoll = () => {
     return <div className="homeone">Hello Baby Doll</div>;
 };

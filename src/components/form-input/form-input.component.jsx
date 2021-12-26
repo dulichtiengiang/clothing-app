@@ -1,7 +1,6 @@
 import React from 'react';
 
 const FormInput = ({ label, type, handleChange, ...otherProps }) => {
-    console.log(otherProps);
     return (
         <div className="form-input">
             <input type={`${type}` || 'text'} className="form-input__input" onChange={handleChange} {...otherProps} />
