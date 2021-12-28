@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
+//! redux
+import { connect } from 'react-redux';
 //! firebase
 import firebase from '../../firebase/firebase.utils';
 
-import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
 
 const Header = (props) => {
-    const { isAuth } = props;
-    const {  currentUser } = isAuth;
+    const { currentUser } = props;
     // console.log(`Header.js -> currentUser: `, currentUser);
     return (
         <div className="header">
@@ -16,7 +16,7 @@ const Header = (props) => {
                 <Logo className="logo"></Logo>
             </Link>
             <div className="options">
-                <Link className="option" to="/home">
+            <Link className="option" to="/home">
                     home
                 </Link>
                 <Link className="option" to="/shop">
@@ -39,4 +39,9 @@ const Header = (props) => {
     );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+    currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header);
+// export default Header;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const MenuItem = (props) => {
-    const { title, size, imageUrl, linkUrl, subtitle, location } = props;
+    const { title, size, imageUrl, linkUrl, location } = props;
     const navigate = useNavigate();
 
     return (

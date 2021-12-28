@@ -37,9 +37,18 @@ const SignIn = () => {
         resetForm();
     };
 
+    React.useEffect(()=>{
+            console.log('effect -> Signin comps');
+
+        return (() => { //! unmount
+            console.log(`Cleanup return -> Signin comps `);
+        })
+    })
+
     return (
         <div className="sign-in">
             <div className="center">
+                {console.log('render -> Signin comps')}
                 <div className="title">
                     <h2>I already have an account</h2>
                     <span>Sign in with your email and password</span>

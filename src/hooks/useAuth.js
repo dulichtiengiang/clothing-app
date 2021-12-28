@@ -6,11 +6,11 @@ import React from 'react';
 const useAuth = () => {
     const [state, setState] = React.useState(() => {
         const currentUser = firebase.auth.currentUser;
-        return {
+        return ({
             //! Nếu user = null -> false ==> khởi tạo không được ==> initializing = true (!user)
             // initializing: !user,
             currentUser,
-        };
+        });
     });
 
     // callback func onAuthStateChanged
