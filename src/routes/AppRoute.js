@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useRoutes } from 'react-router-dom';
 
 //! pages
 import HomePage from '../pages/homepage/homepage.component';
 import ShopPage from '../pages/shop/shop.component';
+import SignIn from '../components/signin/signin.component';
+import SignUp from '../components/signup/signup.component';
 import SigninSignupPage from '../pages/signin-signup/signin-signup.component'
 import PublicRoute from './PublicRoute';
 //! comps
@@ -33,7 +35,9 @@ const AppRoute = () => {
                 { path: '', element: <HomePage /> },
                 { path: 'home', element: <HomePage /> },
                 { path: 'shop', element: <ShopPage /> },
-                { path: 'signin', element: <SigninSignupPage /> },
+                { path: 'signin', element: <SignIn /> },
+                { path: 'signup', element: <SignUp /> },
+                { path: 'auth', element: <SigninSignupPage /> },
             ],
         },
         { path: '/babydoll', element: <CompBabyDoll /> },

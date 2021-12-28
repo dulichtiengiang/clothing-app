@@ -175,41 +175,60 @@ code {
     font-size: 1.3rem;
     width: 100%;
     padding: 0 5px;
-    height: 40px;
+    height: 25px;
     border: none;
     background: none;
     outline: none; }
-    .form-input__input:focus ~ label, .form-input__input:valid ~ label {
+    .form-input__input:focus ~ label {
       top: -10px;
       font-size: 1rem;
       color: #ffae00; }
-    .form-input__input:focus ~ span::after, .form-input__input:valid ~ span::after {
+    .form-input__input:focus ~ span::after {
       width: 100%; }
   .form-input__label {
+    pointer-events: none;
     font-size: 1.3rem;
     position: absolute;
     top: 50%;
     left: 5px;
     color: #808080;
     transform: translateY(-50%);
-    pointer-events: none;
-    transition: all .5s; }
-    .form-input__label.shrink {
-      top: -10px;
-      font-size: 1rem;
-      color: #ffae00; }
-  .form-input span::after {
+    transition: all .5s;
+    text-transform: capitalize; }
+  .form-input__underline:after {
     content: '';
     position: absolute;
-    top: 40px;
+    top: 25px;
     left: 0;
     width: 0%;
     height: 2px;
     background-color: #ffae00;
-    transition: all .5s; }
+    transition: all .3s; }
+  .form-input.active .form-input__underline:after {
+    width: 100%; }
+  .form-input.active .form-input__label {
+    top: -10px;
+    font-size: 1rem;
+    color: #ffae00; }
+
+.sign-up {
+  width: 380px;
+  display: flex;
+  flex-direction: column; }
+  .sign-up .title {
+    margin-bottom: 30px; }
+  .sign-up .buttons {
+    display: flex;
+    justify-content: space-between; }
 
 .homepage {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 80px; }
+
+.signin-signup-page {
+  width: 850px;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto; }

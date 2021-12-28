@@ -5,25 +5,34 @@ import React from 'react';
 
 const useAuth = () => {
     const [state, setState] = React.useState(() => {
-        const user = firebase.auth.currentUser;
+        const currentUser = firebase.auth.currentUser;
         return {
             //! Nếu user = null -> false ==> khởi tạo không được ==> initializing = true (!user)
-            initializing: !user,
-            user,
+            // initializing: !user,
+            currentUser,
         };
     });
 
-    // Handle user state changes
-    function onAuthStateChanged(user) {
-        setState({initializing: false, user});
+    // callback func onAuthStateChanged
+    async function onAuthStateChanged(userAuth) {
+        console.log(`run onAuthStateChanged`);
+        if (!userAuth) {
+            console.warn('No userAuth provided!');
+            return;
+        }
+
+        const userRef = await firebase.createUserProfileDocument(userAuth);
+        
+        userRef.onSnapshot((snapShot) => {
+            setState({ currentUser: { id: snapShot.id, ...snapShot.data() } });
+        });
     }
 
+    //! componentDidMount -> run once
     React.useEffect(() => {
-        const unsubscribe = firebase.auth.onAuthStateChanged(onAuthStateChanged);
-        //! unsubscribe to the listener when unmounting (listerning to authentication)
+        const unsubscribe = firebase.auth.onAuthStateChanged((userAuth) => onAuthStateChanged(userAuth));
         //! Cleanup subscription on unmount
         return unsubscribe;
-        //! close it whenever our Component unmounts, and it will close the Subscription
     }, []);
 
     return state;

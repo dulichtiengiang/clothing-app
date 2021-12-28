@@ -2,11 +2,11 @@ import React from 'react';
 
 const FormInput = ({ label, type, handleChange, ...otherProps }) => {
     return (
-        <div className="form-input">
+        <div className={`form-input ${otherProps.value.length ? 'active' : ""}`}>
             <input type={`${type}` || 'text'} className="form-input__input" onChange={handleChange} {...otherProps} />
-            <span></span>
-            {label ? <label className={`${otherProps.value.length ? 'shrink' : ''} form-input__label`}>{label}</label> : null}
-        </div>  
+            <span className='form-input__underline'></span>
+            <label className='form-input__label'>{label}</label>
+        </div>
     );
 };
 

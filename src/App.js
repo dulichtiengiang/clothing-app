@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react'
 
 import { BrowserRouter as Router } from 'react-router-dom';
 //! hooks
@@ -10,12 +11,18 @@ import Header from './components/header/header.component';
 
 function App() {
     const isAuth = useAuth();
-    const { initializing, user } = isAuth;
-    console.log(`App user: `, user);
+    const { currentUser } = isAuth;
+    console.log(`App.js -> currentUser: `, currentUser);
 
-    if (initializing) {
-        return <div>Loading</div>;
-    }
+    //! componentDidMount ~ run once
+    React.useEffect(() => {
+
+    }, [])
+
+
+    // if (initializing) {
+    //     return <div>Loading</div>;
+    // }
 
     return (
         <Router>

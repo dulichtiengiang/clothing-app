@@ -8,8 +8,8 @@ import { ReactComponent as Logo } from '../../assets/icons/logo.svg';
 
 const Header = (props) => {
     const { isAuth } = props;
-    const { initializing, user } = isAuth;
-    console.log(`Header user: `, user);
+    const {  currentUser } = isAuth;
+    // console.log(`Header.js -> currentUser: `, currentUser);
     return (
         <div className="header">
             <Link className="logo-container" to="/">
@@ -22,12 +22,12 @@ const Header = (props) => {
                 <Link className="option" to="/shop">
                     shop
                 </Link>
-                {user ? (
+                {currentUser ? (
                     <div style={{display: 'flex', justifyContent: 'space-between'}}>
                         <div className="option" onClick={() => firebase.auth.signOut()}>
                             signout
                         </div>
-                        <div className="email">{user.email}</div>
+                        <div className="email">{currentUser.email}</div>
                     </div>
                 ) : (
                     <Link className="option" to="/signin">

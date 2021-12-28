@@ -22,8 +22,34 @@ class Firebase {
         this.auth = app.auth();
         this.provider = new app.auth.GoogleAuthProvider();
     }
-    
+
+    createUserProfileDocument = async (userAuth, additionalData) => {
+        //! userAuth cần là true, => !userAuth là false (null)
+        if (!userAuth) return;
+        const userRef = this.firestore.doc(`users/${userAuth.uid}`);
+        const snapShot = await userRef.get();
+        
+        if (!snapShot.exists) {
+            const { displayName, email } = userAuth;
+            const createAt = new Date();
+
+            try {
+                await userRef.set({
+                    displayName,
+                    email,
+                    createAt,
+                    ...additionalData
+                })
+            } catch (error) {
+                console.error(`error creating user`, error.message)
+            }
+        }
+
+        return userRef;
+    };
+
     signInWithGoogle = () => this.auth.signInWithPopup(this.provider.setCustomParameters({ prompt: 'select_account' })); //! signInWithPopup take this Provider
+    //! this is an asynchronous because we're making an API request.
 
 }
 

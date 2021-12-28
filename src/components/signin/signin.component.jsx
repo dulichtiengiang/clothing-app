@@ -1,26 +1,19 @@
-import React, { useState } from 'react';
-import FormInput from '../form-input/form-input.component';
+import React from 'react';
 
 //! comps
-import CustomButton from '../custom-button/custom-button';
+import FormInput from '../form-input/form-input.component';
+import CustomButton from '../custom-button/custom-button.component';
 
 //! firebase
 import firebase from '../../firebase/firebase.utils';
 
 const SignIn = () => {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = React.useState({
         email: '',
         password: '',
     });
 
     const { email, password } = formData;
-
-    const resetForm = () => {
-        setFormData({
-            email: '',
-            password: '',
-        });
-    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -30,8 +23,15 @@ const SignIn = () => {
         });
     };
 
+    const resetForm = () => {
+        setFormData({
+            email: '',
+            password: '',
+        });
+    };
+
     const handleSubmit = (e) => {
-        console.log('Signin -> submit');
+        console.log('SignIn -> submit');
         e.preventDefault();
         //! Logined
         resetForm();
@@ -44,7 +44,7 @@ const SignIn = () => {
                     <h2>I already have an account</h2>
                     <span>Sign in with your email and password</span>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form className='sign-in-form' onSubmit={handleSubmit}>
                     <FormInput name="email" type="email" label="email" onChange={handleChange} value={email} required />
                     <FormInput name="password" type="password" label="password" onChange={handleChange} value={password} required />
                     <div className="pass">Forgot Password?</div>
@@ -56,7 +56,7 @@ const SignIn = () => {
 
                     <div className="signup_link">
                         Not a member?
-                        <a href="#">Signup</a>
+                        <a href="#/">Signup</a>
                     </div>
                 </form>
             </div>
