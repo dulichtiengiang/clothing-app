@@ -44,14 +44,16 @@ const SignIn = () => {
                     <h2>I already have an account</h2>
                     <span>Sign in with your email and password</span>
                 </div>
-                <form className='sign-in-form' onSubmit={handleSubmit}>
+                <form className="sign-in-form" onSubmit={handleSubmit}>
                     <FormInput name="email" type="email" label="email" onChange={handleChange} value={email} required />
                     <FormInput name="password" type="password" label="password" onChange={handleChange} value={password} required />
                     <div className="pass">Forgot Password?</div>
 
                     <div className="buttons">
-                        <CustomButton type="submit" >Sign in</CustomButton>
-                        <CustomButton onClick={firebase.signInWithGoogle} isGoogleSignIn>Signin Google</CustomButton>
+                        <CustomButton type="submit">Sign in</CustomButton>
+                        <CustomButton onClick={firebase.signInWithGoogle} isGoogleSignIn>
+                            Signin Google
+                        </CustomButton>
                     </div>
 
                     <div className="signup_link">

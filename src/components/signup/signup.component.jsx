@@ -45,14 +45,13 @@ const SignUp = () => {
             console.log(`user: `, user); //dbg
             //! args: (user, dataObject)
             const userRef = await firebase.createUserProfileDocument(user, { displayName });
-            
+
             if (userRef) {
                 resetForm();
             }
         } catch (error) {
             console.error(error);
         }
-
     };
 
     return (
